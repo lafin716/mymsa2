@@ -12,22 +12,8 @@ metadata:
   resourceVersion: "128503"
   uid: 9a6bb7d1-de75-4a2c-9c2e-518a65ecfd4c
 spec:
-  ignoreDifferences:
-  - group: apps
-    kind: Deployment
-    jsonPointers:
-    - /metadata/annotations
-  progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      app: n1
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       creationTimestamp: null
@@ -46,22 +32,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2023-04-20T06:44:23Z"
-    lastUpdateTime: "2023-04-20T06:44:23Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2023-04-20T06:44:06Z"
-    lastUpdateTime: "2023-04-20T06:44:23Z"
-    message: ReplicaSet "n1-7d88897c8f" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 1
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
